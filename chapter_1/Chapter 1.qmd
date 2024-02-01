@@ -1,0 +1,87 @@
+---
+title: "Chapter 1"
+author: "Faith St. Clair"
+format: 
+  html:
+    toc: true
+    theme: darkly
+editor: source
+---
+
+## **Introduction to R and RStudio**
+
+# **Overview of Questions and Objectives**
+
+**Questions**
+
+  * How to find your way around RStudio?
+  * How to interact with R?
+  * How to manage your environment?
+  * How to install packages?
+  
+**Objectives**
+
+  * Describe the purpose and use of each pane in RStudio
+  * Locate buttons and options in RStudio
+  * Define a variable
+  * Assign data to a variable
+  * Manage a workspace in an interactive R session
+  * Use mathematical and comparison operators
+  * Call functions
+  * Manage packages
+  
+  
+*Ensure the latest version of R and RStudio are installed*
+
+
+# **Why use R and RStudio?**
+
+  * Science is a multi-step process:
+    * Design experiment > collect data > analyze data
+  * Microsoft Excel and Google Sheets have limited flexibility and accessibility
+    * Difficult to share
+  * R is freely-available
+  * RStudio is a free, open-source, Integrated Development Environment (IDE)
+    * Provides many advantages such as integration with version control and project management
+    
+# **Overview**
+
+  1. Begin with raw data
+  2. Perform exploratory analyses
+  3. Learn how to plot results graphically
+  
+***Example dataset from [this link](https://www.gapminder.org/)***
+
+  - Population information for many countried throughout time
+  - Objectives:
+    - Read data into R
+    - Plot the population for Senegal
+    - Calculate the average income for countries on the continent of Asia
+    
+**Basic Layout of RStudio**
+  
+When you first open RStudio, you will be greeted by three panels:
+
+  - The interactive R console/Terminal (entire left)
+  - Environment/History/Connections (tabbed in upper right)
+  - Files/Plots/Packages/Help/Viewer (tabbed in lower right)
+
+# **Workflow within RStudio**
+
+Two main ways to work within RStudio
+
+  1. Test and play within the interactive R console then copy code to a .R file to run later
+    - Works well when doing small tests and initially starting off
+    - Quickly becomes laborious
+    
+  2. Start writing in a .R file and use RStudio's short cut keys for the Run command to push the current line, selected lines or modified lines to the interactive R console
+    - Great way to start, all code saved for later
+    - Able to run the file you create from within RStudio or using R's `source()` function
+    
+# **Cancelling Commands**
+
+{{< kbd Shift-Ctrl-P >}}
+
+
+  
+  
