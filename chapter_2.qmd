@@ -1,0 +1,31 @@
+---
+title: "Chapter 2"
+author: "Faith St. Clair"
+format: 
+  html:
+    toc: true
+    theme: darkly
+editor: source
+---
+
+## **Project Management with RStudio**
+
+# **Objectives** 
+
+| Questions   | Objectives |
+|:-----------:|:--------:|
+| - How can I manage my projects in R? | - Create self-contained projects in RStudio |
+
+:::{.callout-important}
+Key Points: 
+
+- Use RStudio to create and manage projects with consistent layout.
+
+- Treat raw data as read-only.
+
+- Treat generated output as disposable.
+
+- Separate function definition and application..
+
+:::
+

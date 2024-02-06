@@ -80,8 +80,165 @@ Two main ways to work within RStudio
     
 # **Cancelling Commands**
 
-{{< kbd Shift-Ctrl-P >}}
+{{< kbd Ctrl >}} + {{< kbd C >}}
+
+- Use Ctrl + C
+- Can also use it to tell R to stop running code
 
 
+# **Using R as a Calculator**
+
+- Use PEMDAS
+
+- Remember that others may later read your code, keep it simple
+
+```{r}
+(3 + (5 * (2 ^ 2))) # hard to read
+3 + 5 * 2 ^ 2       # clear, if you remember the rules
+3 + 5 * (2 ^ 2)     # if you forget some rules, this might help
+```
+
+- Really small or large numbers get scientific notation
+
+# **Mathematical functions**
+
+- R has many built in math functions
+- To call a function:
+  - Type the name
+  - Follow with ()
+- Functions take arguments as inputs
+- Anything inside the () is considered an argument
+
+**Ex math functions:**
+
+| Math Functions | Meanings |
+|:--------------:|:--------:|
+|sin(1)   | trig functions |
+|log(1)   | natural log |
+|log10(10)  | base-10 log |
+|exp(0.5)   | exponent (e^(1/2)) |
   
   
+# **Comparing things in R**
+
+| Comparisons | Meanings |
+|:-----------:|:--------:|
+|1 == 1   | equality |
+|1 != 2   | inequality |
+|1 < 2  | less than |
+|1 <= 1   | less than or equal to |
+| 1>= -9 | greater than or equal to |
+
+# **Variables and assignment**
+
+- Store values in variables 
+  - `x <- 1/40`
+  - x now contains the value 0.025
+  
+```{r}
+x <- 1/40
+log(x)
+```
+
+- Variables can be reassigned!
+- Assignment values can contain the variable being assigned to:
+
+```{r}
+x <- 100
+x <- x + 1
+y <- x * 2
+```
+
+- The right hand side can be any valid R expression and is *fully* evaluated before the assignment occurs
+
+- Variable names can contain:
+  - Letters
+  - Numbers
+  - Underscores
+  - Periods
+- Variable names cannot contain **spaces**
+
+- BE CONSISTENT
+
+# **Vectorization**
+
+- R is *vectorized*
+  - Variables and functions can have vectors as values
+  - In R: a vector describes a set of values in a certain order of the same data type
+  
+Examples:
+
+```{r}
+1:5
+
+2^(1:5)
+
+x <- 1:5
+2^x
+```
+
+
+# **Managing your environment**
+
+- Useful commands to interact with your R session 
+
+  - `ls()` will list all the variables and functions stored in the global environment (in your working R session)
+ 
+- Hidden objects:
+  - `ls` will hide any variables or functions starting with a "." by default
+  - To list all objects, type `ls(all.names=TRUE)`
+  
+- Use `rm()` to delete objects you no longer need
+
+- If you have lots of your things in your environment and want to delete them all, use `rm(list = ls())`
+
+# **R Packages**
+
+- You can see what packages are installed by typing `installed.packages()`
+- You can install packages by typing `install.packages("packagename")`, where packagename is the package name, in quotes.
+- You can update installed packages by typing `update.packages()`
+- You can remove a package with `remove.packages("packagename")`
+- You can make a package available for use with `library(packagename)`
+
+# **Challenge**
+
+```{r}
+mass <- 47.5
+age <- 122
+mass <- mass * 2.3
+age <- age - 20
+
+mass
+age
+
+mass>age
+
+rm(age,mass)
+
+# install.packages("ggplot2")
+# install.packages("plyr")
+# install.packages("gapminder")
+# or install.packages(c("ggplot2", "plyr", "gapminder"))
+
+```
+
+
+
+
+
+:::{.callout-important}
+Key Points: 
+
+- Use RStudio to write and run R programs.
+
+- R has the usual arithmetic operators and mathematical functions.
+
+- Use `<-` to assign values to variables.
+
+- Use `ls()` to list the variables in a program.
+
+- Use `rm()` to delete objects in a program.
+
+- Use `install.packages()` to install packages (libraries).
+
+:::
