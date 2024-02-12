@@ -1,0 +1,90 @@
+---
+title: "Chapter 3"
+author: "Faith St. Clair"
+format: 
+  html:
+    toc: true
+    theme: darkly
+editor: source
+---
+
+## **Seeking Help**
+
+# **Overview** 
+
+**Questions**
+
+- How can I get help in R? 
+
+**Objectives** 
+
+- To be able to read R help files for functions and special operators.
+- To be able to use CRAN task views to identify packages to solve a problem.
+- To be able to seek help from your peers.
+
+# **Reading Help Files**
+
+- R and every package provide help files for functions
+
+> `?function_name`
+
+> `help(function_name)`
+
+Each help page is broken down into sections
+
+- **Description:** An extended description of what the function does.
+- **Usage:** The arguments of the function and their default values (which can be changed).
+- **Arguments:** An explanation of the data each argument is expecting.
+- **Details:** Any important details to be aware of.
+- **Value:** The data the function returns.
+- **See Also:** Any related functions you might find useful.
+- **Examples:** Some examples for how to use the function.
+
+# **Special Operators**
+
+To seek help on special operators, use quotes or backticks:
+
+> `?"<-"`
+
+# **Getting Help with Packages**
+
+- Many packages come with "vignettes": tutorials and extended example documentation
+
+- Without any arguments, `vignette()` will list all vignettes for all installed packages
+
+- `vignette(package="package-name")` will open the specified vignette
+
+[Cheatsheets](https://posit.co/resources/cheatsheets/) for packages
+
+# **When you remember part of the function name**
+
+- When you're not sure what package a function is in or how it's specifically spelled, you can do a fuzzy search:
+
+  - When you search for an approximate string match
+  
+> ??function_name
+
+# **When you have no idea where to start**
+
+[CRAN Task Views](https://cran.r-project.org/web/views/)
+
+# **When Your Code Doesn't Work: Seeking Help from your Peers**
+
+- Usually questions are already answered on [Stack Overflow](https://stackoverflow.com/)
+  - Search using the `[r]` tag
+- See page on [how to ask a good question](https://stackoverflow.com/help/how-to-ask)
+
+- Can't find the answer? Useful functions to help you ask your peers
+
+> `?dput`
+Dumps the data your working with into a format that can be copied and pasted by others into their own R session
+
+> `sessionInfo()`
+Will print out your current version of R, as well as any packages you have loaded - can help others debug your issue
+
+
+
+
+
+
+
