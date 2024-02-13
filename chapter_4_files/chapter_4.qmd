@@ -1,0 +1,201 @@
+---
+title: "Chapter 4"
+author: "Faith St. Clair"
+format: 
+  html:
+    toc: true
+    theme: darkly
+editor: source
+---
+
+
+## **Data Structures**
+
+# **Overview** 
+
+**Questions**
+
+- How can I read data in R?
+- What are the basic data types in R?
+- How do I represent categorical information in R?
+
+**Objectives** 
+
+- To be able to identify the 5 main data types.
+- To begin exploring data frames, and understand how they are related to vectors and lists.
+- To be able to ask questions from R about the type, class, and structure of an object.
+- To understand the information of the attributes "names", "class", and "dim".
+
+
+One of R's most powerful features is its ability to deal with tabular data - such as you may already have in a spreadsheet or CSV file.
+
+Start by making a toy dataset in your `data/` directory, called `feline_data.csv`:
+
+```{r}
+cats <- data.frame(coat = c("calico", "black", "tabby"),
+                   weight = c(2.1, 5.0, 3.2),
+                   likes_string = c(1, 0, 1))
+
+?write.csv # pull up help file to check argument names and their default values
+
+write.csv(x = cats, file = "data/feline_data.csv", row.names = FALSE) #make data, character vector of row names
+
+cats <- read.csv(file = "data/feline-data.csv")
+cats #load this into R
+
+
+```
+
+
+:::{.callout-important}
+Key Points: 
+
+Easy format called a "character" ("factor" we will learn later, more complicated)
+
+1. Check the data types of your input by typing `str(cats)`
+2. In the output, look at the three-letter codes after the colons: If you see only “num” and “chr”, you can continue with the lesson and skip this box. If you find “fct”, continue to step 3.
+3. Prevent R from automatically creating “factor” data. That can be done by the following code: `options(stringsAsFactors = FALSE)`. Then, re-read the cats table for the change to take effect.
+4. You must set this option every time you restart R. To not forget this, include it in your analysis script before you read in any data, for example in one of the first lines.
+5. For R versions greater than 4.0.0, text data is no longer converted to factors anymore. So you can install this or a newer version to avoid this problem. If you are working on an institute or company computer, ask your administrator to do it.
+
+:::
+
+
+Explore dataset, pull out columns by specifying the `$` operator
+
+```{r}
+
+cats$weight #pulls cats weights
+
+cats$coat #cat coat color
+
+## Say we discovered that the scale weighs two Kg light:
+cats$weight + 2
+
+paste("My cat is", cats$coat)
+# output: [1] "My cat is calico" "My cat is black"  "My cat is tabby" 
+
+#try
+
+cats$weight + cats$coat
+# output:Error in cats$weight + cats$coat: non-numeric argument to binary operator
+
+
+```
+
+
+# **Data Types**
+
+Ask what type of data something is 
+
+There are 5 main types:
+1. double
+2. integer
+3. complex
+4. logical
+5. character
+
+```{r}
+typeof(cats$weight)
+#output: double
+
+typeof(3.14) #double
+
+typeof(1L) # The L suffix forces the number to be an integer, since by default R uses float numbers
+
+typeof(1+1i)
+#complex
+
+typeof(TRUE)
+#logical
+
+typeof('banana')
+#character
+
+```
+
+
+A user has added details of another cat:
+
+```{r}
+file.show("data/feline-data_v2.csv") #show the file
+
+#load new cats data like before, check data in weight column
+cats <- read.csv(file="data/feline-data_v2.csv")
+typeof(cats$weight)
+#character
+
+#cats aren't double the weight anymore, if the same math there's throuble
+
+cats$weight + 2
+#Error in cats$weight + 2: non-numeric argument to binary operator
+
+```
+
+
+*Data frames* are very common and versatile *data structures* to work with in R
+
+- In this case, R does not read anything in the weight as a double, therefore the entire column data type changes to something thay is suitable for everything in the column
+
+- When R reads a csv file, it reads it in as a data frame. Thus, when we loaded the cats csv file, it is stored as a data frame. We can recognize data frames by the first row that is written by the `str()` function:
+
+```{r}
+str(cats)
+#data frames are composed of rows and columns where each column has the same number of rows
+
+```
+
+
+- Different columns in the data frame can be made up of different data types
+- BUT, everything in a given column needs to be the same type (e.g., vector, factor, or list)
+
+```{r}
+cats <- read.csv(file="data/feline-data.csv")
+
+```
+
+
+# **Vectors and Type Coercion**
+
+The *vector*
+
+```{r}
+my_vector <- vector(length = 3)
+my_vector
+
+```
+
+Vector is an ordered list of things, everything is the same basic data type
+
+If you didn't choose anything, it defaults to logical
+
+```{r}
+another_vector <- vector(mode='character', length=3)
+another_vector
+
+#check if something is in a vector
+str(another_vector)
+
+
+#similarly
+str(cats$weight)
+
+```
+
+
+# **Coercion by combining vectors**
+
+Make vectors with explivit contents with the combine function:
+
+```{r}
+combine_vector <- c(2,6,3)
+combine_vector
+
+quiz_vector <- c(2,6,'3')
+#type coercion, force to be same type
+
+```
+
+
+type of: Cats - list
+class: Cats - data.frame

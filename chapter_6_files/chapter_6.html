@@ -8,7 +8,7 @@
 
 <meta name="author" content="Faith St.&nbsp;Clair">
 
-<title>Chapter 3</title>
+<title>Chapter 6</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,16 +24,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="Chapter 3_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Chapter 3_files/libs/quarto-html/quarto.js"></script>
-<script src="Chapter 3_files/libs/quarto-html/popper.min.js"></script>
-<script src="Chapter 3_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Chapter 3_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Chapter 3_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Chapter 3_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Chapter 3_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Chapter 3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Chapter 3_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="chapter_6_files/libs/clipboard/clipboard.min.js"></script>
+<script src="chapter_6_files/libs/quarto-html/quarto.js"></script>
+<script src="chapter_6_files/libs/quarto-html/popper.min.js"></script>
+<script src="chapter_6_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="chapter_6_files/libs/quarto-html/anchor.min.js"></script>
+<link href="chapter_6_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="chapter_6_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="chapter_6_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="chapter_6_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="chapter_6_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 
 
 </head>
@@ -46,14 +46,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#seeking-help" id="toc-seeking-help" class="nav-link active" data-scroll-target="#seeking-help"><strong>Seeking Help</strong></a></li>
+  <li><a href="#subsetting-data" id="toc-subsetting-data" class="nav-link active" data-scroll-target="#subsetting-data"><strong>Subsetting Data</strong></a></li>
   <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><strong>Overview</strong></a></li>
-  <li><a href="#reading-help-files" id="toc-reading-help-files" class="nav-link" data-scroll-target="#reading-help-files"><strong>Reading Help Files</strong></a></li>
-  <li><a href="#special-operators" id="toc-special-operators" class="nav-link" data-scroll-target="#special-operators"><strong>Special Operators</strong></a></li>
-  <li><a href="#getting-help-with-packages" id="toc-getting-help-with-packages" class="nav-link" data-scroll-target="#getting-help-with-packages"><strong>Getting Help with Packages</strong></a></li>
-  <li><a href="#when-you-remember-part-of-the-function-name" id="toc-when-you-remember-part-of-the-function-name" class="nav-link" data-scroll-target="#when-you-remember-part-of-the-function-name"><strong>When you remember part of the function name</strong></a></li>
-  <li><a href="#when-you-have-no-idea-where-to-start" id="toc-when-you-have-no-idea-where-to-start" class="nav-link" data-scroll-target="#when-you-have-no-idea-where-to-start"><strong>When you have no idea where to start</strong></a></li>
-  <li><a href="#when-your-code-doesnt-work-seeking-help-from-your-peers" id="toc-when-your-code-doesnt-work-seeking-help-from-your-peers" class="nav-link" data-scroll-target="#when-your-code-doesnt-work-seeking-help-from-your-peers"><strong>When Your Code Doesn’t Work: Seeking Help from your Peers</strong></a></li>
   </ul>
 </nav>
 </div>
@@ -61,7 +55,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapter 3</h1>
+<h1 class="title">Chapter 6</h1>
 </div>
 
 
@@ -82,92 +76,22 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="seeking-help" class="level2">
-<h2 class="anchored" data-anchor-id="seeking-help"><strong>Seeking Help</strong></h2>
+<section id="subsetting-data" class="level2">
+<h2 class="anchored" data-anchor-id="subsetting-data"><strong>Subsetting Data</strong></h2>
 </section>
 <section id="overview" class="level1">
 <h1><strong>Overview</strong></h1>
 <p><strong>Questions</strong></p>
 <ul>
-<li>How can I get help in R?</li>
+<li>How can I work with subsets of data in R?</li>
 </ul>
 <p><strong>Objectives</strong></p>
 <ul>
-<li>To be able to read R help files for functions and special operators.</li>
-<li>To be able to use CRAN task views to identify packages to solve a problem.</li>
-<li>To be able to seek help from your peers.</li>
+<li>To be able to subset vectors, factors, matrices, lists, and data frames</li>
+<li>To be able to extract individual and multiple elements: by index, by name, using comparison operations</li>
+<li>To be able to skip and remove elements from various data structures.</li>
 </ul>
-</section>
-<section id="reading-help-files" class="level1">
-<h1><strong>Reading Help Files</strong></h1>
-<ul>
-<li>R and every package provide help files for functions</li>
-</ul>
-<blockquote class="blockquote">
-<p><code>?function_name</code></p>
-</blockquote>
-<blockquote class="blockquote">
-<p><code>help(function_name)</code></p>
-</blockquote>
-<p>Each help page is broken down into sections</p>
-<ul>
-<li><strong>Description:</strong> An extended description of what the function does.</li>
-<li><strong>Usage:</strong> The arguments of the function and their default values (which can be changed).</li>
-<li><strong>Arguments:</strong> An explanation of the data each argument is expecting.</li>
-<li><strong>Details:</strong> Any important details to be aware of.</li>
-<li><strong>Value:</strong> The data the function returns.</li>
-<li><strong>See Also:</strong> Any related functions you might find useful.</li>
-<li><strong>Examples:</strong> Some examples for how to use the function.</li>
-</ul>
-</section>
-<section id="special-operators" class="level1">
-<h1><strong>Special Operators</strong></h1>
-<p>To seek help on special operators, use quotes or backticks:</p>
-<blockquote class="blockquote">
-<p><code>?"&lt;-"</code></p>
-</blockquote>
-</section>
-<section id="getting-help-with-packages" class="level1">
-<h1><strong>Getting Help with Packages</strong></h1>
-<ul>
-<li><p>Many packages come with “vignettes”: tutorials and extended example documentation</p></li>
-<li><p>Without any arguments, <code>vignette()</code> will list all vignettes for all installed packages</p></li>
-<li><p><code>vignette(package="package-name")</code> will open the specified vignette</p></li>
-</ul>
-<p><a href="https://posit.co/resources/cheatsheets/">Cheatsheets</a> for packages</p>
-</section>
-<section id="when-you-remember-part-of-the-function-name" class="level1">
-<h1><strong>When you remember part of the function name</strong></h1>
-<ul>
-<li><p>When you’re not sure what package a function is in or how it’s specifically spelled, you can do a fuzzy search:</p>
-<ul>
-<li>When you search for an approximate string match</li>
-</ul></li>
-</ul>
-<blockquote class="blockquote">
-<p>??function_name</p>
-</blockquote>
-</section>
-<section id="when-you-have-no-idea-where-to-start" class="level1">
-<h1><strong>When you have no idea where to start</strong></h1>
-<p><a href="https://cran.r-project.org/web/views/">CRAN Task Views</a></p>
-</section>
-<section id="when-your-code-doesnt-work-seeking-help-from-your-peers" class="level1">
-<h1><strong>When Your Code Doesn’t Work: Seeking Help from your Peers</strong></h1>
-<ul>
-<li><p>Usually questions are already answered on <a href="https://stackoverflow.com/">Stack Overflow</a></p>
-<ul>
-<li>Search using the <code>[r]</code> tag</li>
-</ul></li>
-<li><p>See page on <a href="https://stackoverflow.com/help/how-to-ask">how to ask a good question</a></p></li>
-<li><p>Can’t find the answer? Useful functions to help you ask your peers</p></li>
-</ul>
-<blockquote class="blockquote">
-<p><code>?dput</code> Dumps the data your working with into a format that can be copied and pasted by others into their own R session</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><code>sessionInfo()</code> Will print out your current version of R, as well as any packages you have loaded - can help others debug your issue</p>
-</blockquote>
+<hr>
 </section>
 
 </main>

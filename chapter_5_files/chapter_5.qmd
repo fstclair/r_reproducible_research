@@ -1,0 +1,91 @@
+---
+title: "Chapter 5"
+author: "Faith St. Clair"
+format: 
+  html:
+    toc: true
+    theme: darkly
+editor: source
+---
+
+## **Exploring Data Frames**
+
+# **Overview** 
+
+**Questions**
+
+- How can I manipulate a data frame?
+
+**Objectives** 
+
+- Add and remove rows or columns.
+- Append two data frames.
+- Display basic properties of data frames including size and class of the columns, names, and first few rows.
+
+
+# **Adding columns and rows in data frames**
+
+```{r}
+age <- c(2, 3, 5)
+cats
+
+#add column
+cbind(cats, age)
+
+nrow(cats)
+length(age)
+#now have nrow(cats)=length(age)
+
+#overwrite content of cats with new data frame
+age <- c(2, 3, 5)
+cats <- cbind(cats, age)
+
+#adding rows
+newRow <- list("tortoiseshell", 3.3, TRUE, 9)
+cats <- rbind(cats, newRow)
+
+#confirm
+cats
+
+#removing rows
+cats[-4, ]
+
+#removing columns
+cats[,-4]
+
+#drop column
+drop <- names(cats) %in% c("age")
+cats[,!drop]
+
+```
+
+
+# **Appending to a data frame**
+
+*Columns are vectors and rows are lists*
+
+```{r}
+#glue two data frames with rbind
+cats <- rbind(cats, cats)
+cats
+```
+
+
+:::{.callout-important}
+Key Points: 
+
+- Use cbind() to add a new column to a data frame.
+
+- Use rbind() to add a new row to a data frame.
+
+- Remove rows from a data frame.
+
+- Use `str()`, `summary()`, `nrow()`, `ncol()`, `dim()`, `colnames()`, `head()`, and `typeof()` to understand the structure of a data frame.
+
+- Read in a csv file using `read.csv()`.
+
+- Understand what `length()` of a data frame represents.
+
+:::
+
+

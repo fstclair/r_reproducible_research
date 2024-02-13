@@ -1,0 +1,158 @@
+---
+title: "Chapter 6"
+author: "Faith St. Clair"
+format: 
+  html:
+    toc: true
+    theme: darkly
+editor: source
+---
+
+## **Subsetting Data**
+
+# **Overview** 
+
+**Questions**
+
+- How can I work with subsets of data in R?
+
+**Objectives** 
+
+- To be able to subset vectors, factors, matrices, lists, and data frames
+- To be able to extract individual and multiple elements: by index, by name, using comparison operations
+- To be able to skip and remove elements from various data structures.
+
+________________________________________________
+
+R has many powerful subset operators
+
+- 6 different ways to subset any kind of object
+- 3 different subsetting operators for the different data structures
+
+```{r}
+#workhorse of R: a simple numeric vector
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+x
+```
+
+
+:::{.callout-important}
+Atomic Vectors: 
+
+In R, simple vectors containing character strings, numbers, or logical values are called atomic vectors because they can’t be further simplified.
+
+:::
+
+# **Accessing elements using their indices**
+
+```{r}
+#To extract elements of a vector we can give their corresponding index, starting from one:
+
+x[1]
+
+x[4]
+
+#It may look different, but the square brackets operator is a function. For vectors (and matrices), it means “get me the nth element”.
+
+#ask for multiple elements at once
+x[c(1, 3)]
+
+#slices of the vector
+x[1:4]
+
+#the : operator creates a sequence of numbers from the left elements to the right
+1:4
+c(1, 2, 3, 4)
+
+#ask for the same elements multiple times
+x[c(1,1,3)]
+
+#ask for an index beyond the length of the vector, R will return missing "NA" value
+x[6]
+
+#if we ask for the 0th elementh, we get an empty vector
+x[0]
+
+```
+
+
+:::{.callout-important}
+Vector Numbering in R starts at 1: 
+
+In many programming languages (C and Python, for example), the first element of a vector has an index of 0. In R, the first element is 1.
+
+:::
+
+# **Skipping and removing elements**
+
+```{r}
+# neg number as index of a vector, R returns every element *except* for the one specified
+x[-2]
+
+#skip multiple elements
+x[c(-1, -5)]  # or x[-c(1,5)]
+
+#order of operations is important i.e., not x[-1:3], but x[-(1:3)]
+x[-(1:3)]
+
+#to remove elements from a vector, assign the result back into the variable
+x <- x[-4]
+x
+
+```
+
+
+# **Subsetting by name**
+
+```{r}
+#extract elements by using their name, instead of using index
+x <- c(a=5.4, b=6.2, c=7.1, d=4.8, e=7.5) # we can name a vector 'on the fly'
+x[c("a", "c")]
+
+#more reliable
+```
+
+# **Subsetting through other logical operations**
+
+```{r}
+#use any logical vector to subset
+x[c(FALSE, FALSE, TRUE, FALSE, TRUE)]
+
+#Since comparison operators (e.g. >, <, ==) evaluate to logical vectors, we can also use them to succinctly subset vectors: the following statement gives the same result as the previous one.
+
+x[x > 7]
+
+#use == to mimic the previous method of indexing by name
+## have to use == rather than = for comparisons
+x[names(x) == "a"]
+
+```
+
+
+# **Skipping named elements**
+
+```{r}
+#use the != (not-equals) operator to construct a logical vector that will do what we want:
+x[names(x) != "a"]
+
+#skip multiple
+x[! names(x) %in% c("a","c") ]
+
+```
+
+
+:::{.callout-important}
+Key Points: 
+
+- Indexing in R starts at 1, not 0.
+
+- Access individual values by location using `[]`.
+
+- Access slices of data using `[low:high]`.
+
+- Access arbitrary sets of data using `[c(...)]`.
+
+- Use logical operations and logical vectors to access subsets of data.
+
+:::
